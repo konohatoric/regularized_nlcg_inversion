@@ -324,7 +324,7 @@ result["iterations"]
 ## 注意点
 
 このコードは、任意の非線形順解析モデルに適用できるように汎用的に作成されています。
-ただし、実際の解析に使用する場合は、対象とする物理モデルや観測データの性質に合わせて、初期モデル、モデルパラメータの上下限、正則化パラメータ、反復回数、収束条件、差分ステップ幅などを適切に調整する必要があります。
+ただし、実際の解析に使用する場合は、対象とするモデルや観測データの性質に合わせて、初期モデル、モデルパラメータの上下限、正則化パラメータ、反復回数、収束条件、差分ステップ幅などを適切に調整する必要があります。
 
 また、残差は対数空間で評価されるため、観測データと計算データは正の値を持つことが前提です。
 ゼロや負の値を含むデータを扱う場合は、前処理や順解析モデルの設計に注意が必要です。
@@ -656,12 +656,3 @@ This file is intended to be reusable as an inversion solver, so the following pr
 
 These processes should be prepared in another file or in a Notebook according to the target analysis.
 
-## Notes
-
-This code is designed to be general so that it can be applied to arbitrary nonlinear forward models.
-However, when using it for actual analysis, the initial model, parameter bounds, regularization parameter, number of iterations, convergence condition, and finite-difference step width should be adjusted appropriately according to the target physical model and the properties of the observed data.
-
-Also, because the residual is evaluated in logarithmic space, the observed data and calculated data are assumed to have positive values.
-If the data include zero or negative values, preprocessing or forward-model design should be handled carefully.
-
-In addition, since the Jacobian is numerically approximated using central differences, the computation time may become long when the number of parameters is large or when the forward calculation is expensive.
